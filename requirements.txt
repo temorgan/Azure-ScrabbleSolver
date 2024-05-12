@@ -3,3 +3,9 @@
 # Manually managing azure-functions-worker may cause unexpected issues
 
 azure-functions
+# Any other libraries your project needs
+requests  # If making HTTP requests
+numpy     # If doing numerical operations
+pandas    # If you manipulate tabular data
+
+azure-storage-blob

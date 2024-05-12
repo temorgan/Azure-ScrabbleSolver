@@ -1,0 +1,75 @@
+Project Overview:
+I am trying to develop an Azure function-based Scrabble Solver to assist users in finding valid English words from a given set of tiles. The function should be capable of generating all possible permutations of the tiles, from lengths of two up to the number of tiles provided, and then validate these permutations against a comprehensive English dictionary. The journey of developing an Azure Function-based Scrabble Solver for validating word permutations from Scrabble tiles has been a deeply enriching experience that bridges theoretical learning with practical application. This journey began amidst the challenges of outdated instructional materials, requiring frequent troubleshooting and adjustments to align old practices with modern technological standards.
+
+I embarked on a project to develop a Scrabble solver function using Azure Functions, aimed at generating all possible valid word permutations from given Scrabble tiles. This function was intended to verify these permutations against a comprehensive English dictionary.
+
+Through the course "Large Language Models: Core Concepts to Custom Applications," I discovered profound connections between the strategic elements of Scrabble and the sophisticated techniques used in large language models (LLMs) like ChatGPT. The course illuminated the importance of tokenization, predictive analysis, and the nuanced use of vectors and bidirectional encoding—core concepts that enhance our understanding of language processing beyond mere word recognition. In an effort to adhere to Srabble based rules and within this dictionary, I am  integrating the TWL06 dictionary module into my Azure ScrabbleSolver project, I need to adjust my Python code and project structure to work efficiently with Azure Functions. Recently, I've encountered issues with module imports, especially with the TWL06 dictionary which uses a DAWG (Directed Acyclic Word Graph) for fast lookups. My project is structured to use the TWL06 dictionary without the need for an __init__.py file, aligning with Azure Functions updated handling of Python projects (please review the uploaded documents).
+
+I aim to enhance my Scrabble Solver application by integrating advanced computational linguistics concepts, optimizing its performance to validate permutations generated from Scrabble tiles provided by users. This involves using itertools for permutation generation and validating each permutation against the TWL06 dictionary to check for valid Scrabble words.
+
+I am also adjusting environment variables and project settings to ensure smooth integration and operation within the Azure platform, seeking to make the application robust for real-time word generation and validation. Furthermore, I plan to leverage methods like twl.children() from the TWL06 module to enhance the functionality of my Scrabble Solver.
+
+Initial Setup and Challenges:
+
+The initial phase involved setting up the Azure Function and integrating it with the local environment. I stored the dictionary of valid Scrabble words locally and attempted to load it during the function’s execution. However, I encountered multiple challenges:
+
+File Path Issues:
+One of the first hurdles was ensuring that the Azure Function could correctly access and read the dictionary file. The file paths that worked in my local testing environment did not directly translate when deployed to Azure, leading to issues in accessing the dictionary file.
+
+Performance Concerns:
+The function needed to handle a large number of permutations, especially for inputs with many tiles. This raised concerns about the performance and efficiency of my solution, particularly regarding memory usage and processing time.
+
+Logging and Diagnostics:
+To diagnose issues within the function, I implemented logging. However, debugging was challenging because the logs did not always capture enough detail to pinpoint specific failures, especially when the function returned no results despite apparently succeeding in permutation generation.
+
+Integration with Development Tools:
+Throughout the development, I used Visual Studio Code and Git for version control. Setting up a proper repository and ensuring consistent commits posed a learning curve. Managing file changes, especially with large dictionary files, required careful consideration of Git’s handling of large files and directory structures.
+
+Version Control and Repository Management:
+I created a Git repository to manage the codebase, enabling version control and feature branching. This was pivotal for managing different versions of the code and experimenting with new features without risking the stability of the main application.
+
+Understanding Data Structures:
+As I progressed, I realized the importance of efficient data structures. I planned to use a Trie for fast look-up and validation of words and considered integrating a Directed Acyclic Word Graph (DAWG) to optimize memory usage further.
+
+Learning and Development:
+
+This project has not only been about building a functional Scrabble solver but also about deepening my understanding of cloud functions, advanced data structures, and version control systems. It exemplifies the practical application of theoretical concepts such as tokenization, neural network architectures, and embeddings, illustrating how they can be employed to solve real-world problems in software development.
+
+Current State and Forward Path:
+
+Despite these challenges, the core functionality of generating permutations and checking their validity against a dictionary was implemented. However, the function sometimes returned no results, which suggested issues either in the dictionary loading or in the permutation checking logic.
+
+Future Goals:
+
+Moving forward, I aim to refine the implementation by enhancing the Trie and possibly integrate DAWG: This will improve the efficiency of the word validation process and Optimize permutation generation: 
+
+I plan to enhance the logic to reduce unnecessary computations and integrate checks earlier in the generation process.
+Improve logging and error handling: To better understand the function’s behavior in production and swiftly pinpoint issues, optimizing the code for better performance, and handling potential issues in deployment and I'd like to proceed at this point for developing and refining this Scrabble Solver application, and using Git for effective version control and branching strategies and the goals focusing first on establishing a solid base with the Trie implementation before moving to the DAWG optimization.generating all possible permutations of the tiles, from lengths of two up to the number of tiles provided, and then validate these permutations against a comprehensive English dictionary such as with using DAWG and Tier techniques that will refine the code towards this goal that functions not only serving as a practical utility in gaming but also acting as a tangible application of the theoretical concepts covered in the Large Language Modelling course, demonstrating the real-world relevance of LLM techniques in everyday tasks. understanding individual concepts like tokenization, neural network architectures, and embeddings but also provides a comprehensive view of how these components work together in real applications. It illustrates the transition from individual letters and tiles (analogous to tokens in NLP) to forming meaningful words (analogous to sentences or outputs in NLP tasks), guided by the intelligent application of language models. 
+At this point having used Gits version control to not only help tracking changes and managing different versions of the code but also facilitates collaboration and experimentation without the risk of losing previous work for the purposes of iterative testing and feature integration are required, I'm ready to proceed in not only creating a function that should be capable of generating all possible permutations of the tiles, from lengths of two up to the number of tiles provided, and then validate these permutations against a comprehensive English dictionary but also understanding Trie and DAWG in this Project and using Trie usage in this case, where the Trie is used to store all possible valid words from the dictionary allowing for fast lookup, insertion, and prefix searches which are crucial for efficiently finding valid Scrabble words from given tiles and a clear structure to facilitate word validation and prefix-based searches. As well it should provide an understanding of DAWG (Directed Acyclic Word Graph) as a more space-efficient version of a Trie merging common suffixes of different words, reducing the overall space required and reduces memory usage while still allowing fast lookup and word validation - particularly useful when the dictionary is large and integrating DAWG and Trie Techniques. This DAWG can be seen as an optimization over the Trie in terms of space for this  Scrabble Solver, starting with a stable and functional Trie stable to optimize memory usage which aligns well with the concept of iterative development in software engineering—start with a simple implementation (Trie) and optimize later (DAWG).
+In summary as I am proceeding in developing and refining  this Scrabble-Solver application, using Git to commit each significant change, as a way to document the development process, I would like to proceed in branching for trying new features. For instance, creating a branch to try integrating a DAWG without affecting the main working code.
+By setting up a Git repository and understanding the role of Trie and DAWG, I am trying to enhancing the project's management and my grasp of key data structures used in software development, especially in applications dealing with large sets of structured text data. So if I can have the first branch occur - the branch before establishing the role of Trie and DAWG, I would like to focus on:
+
+"The Scrabble Solver function encapsulating this learning by performing several critical operations:
+
+1. Word List Loading: It starts by loading a dictionary of English words to validate the permutations generated from the tiles provided by users.
+2. Permutation Generation: Utilizing Python's itertools.permutations, it generates all viable permutations of the tiles for lengths ranging from two to the total number of tiles.
+3. Word Validation: Each permutation is then validated against the dictionary to determine its legitimacy as an English word.
+4. Response Handling: The function aggregates valid words, sorts them by length to prioritize longer, more valuable words, and returns this list to the user in a JSON format.
+
+Enhancements for Optimization:
+
+1. Filtering During Word Generation:  Instead of generating all permutations and subsequently checking their validity, integrate dictionary checks during the permutation generation process. This approach minimizes computational overhead by discarding invalid permutations early in the process. To improve efficiency, the function integrates dictionary checks during the permutation generation process, reducing computational overhead by discarding non-viable permutations early on.
+
+2. Improving Dictionary Validation: Update or replace the current dictionary with a more comprehensive one to ensure that it encompasses all expected valid words, enhancing the solver's accuracy and reliability.
+
+3. Trie Implementation for Efficient Look-Up: A trie (prefix tree) is implemented for storing the dictionary, facilitating faster look-ups and efficient word validation, especially beneficial when dealing with large datasets.
+
+4. Advanced Filtering Techniques:  After generating potential words, apply additional filters to exclude unlikely or non-standard English words. This could involve cross-referencing with a curated list of words or implementing linguistic rules based on word usage frequency. Additional filters are applied post-generation to exclude improbable English words by cross-referencing them with a curated list, or by applying linguistic rules based on word usage frequency.
+
+5. Optimize Permutation Generation: Refine the generation of permutations by checking partial word formations against the trie, which prevents the complete generation of non-viable words.
+
+Purpose and Impact:
+The Scrabble Solver function is designed to assist users in identifying optimal word combinations from a given set of Scrabble tiles, enhancing gameplay, educational tools, or linguistic research. The enhancements proposed optimize the solver’s performance, making it a robust tool for real-time word generation and validation. It aims to enhance user experience by leveraging computational algorithms to efficiently and accurately determine valid words, thus supporting games, educational tools, or linguistic research. The enhancements proposed will further optimize the solver's performance, making it a robust tool for real-time word generation and validation."
+
+When I last worked on the Azure ScrabbleSolver project, I had set up a Git repository, created a branch for Trie implementation, and begun developing the core functionality to load a dictionary of English words and generate permutations of tiles provided by users. I was using the Trie for efficient word validation and had plans to explore DAWG optimizations. I need to continue enhancing the Scrabble Solver, focusing on optimizing the word generation process, integrating a user interface, and improving overall performance. I'm looking for advice on advanced data structures for text processing and tips on effective Git branching strategies for feature development. Now I am trying to incoporate the TWL06 into this function. How can I proceed with these enhancements. Please review the provided documents: 'Large Language Models - Core Concepts to Customized Applications transcript',  'Azure - Manage your function apps', 'Develop Azure Functions by Using Visual Studio', 'OpenAI Documentation - Feb 24 2024', 'OpenAI Python API library' and all the 'UDEMY ChatGPT - OpenAI - Courses' documents as they all reflect former ChatGPT conversations.
+I am also providing the established working code 'original_working.py' file for reference. 
